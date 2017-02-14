@@ -8,3 +8,5 @@
 * dirname(__FILE__)替换为__DIR__
 * 短数组语法
 * 代码格式化
+* 先移除代码生成器部分
+* 移除NotORM类相关，改用composer引入
