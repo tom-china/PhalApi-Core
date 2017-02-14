@@ -1,8 +1,12 @@
 {
   "name": "phalapi/phalapi-core",
   "description": "A light-weight framework focus on how to develop API faster and simple.",
+  "keywords": [
+    "API"
+  ],
   "minimum-stability": "dev",
   "license": "GPL-2.0",
+  "homepage": "http://www.phalapi.net/",
   "authors": [
     {
       "name": "Dogstar Huang",
@@ -21,7 +25,15 @@
     "phalapi/notorm": "dev-master"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.0"
+    "phpunit/phpunit": "6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhalApi\\": "src/PhalApi/"
+    },
+    "exclude-from-classmap": [
+      "/src/Tests/"
+    ]
   },
   "repositories": {
     "packagist": {
