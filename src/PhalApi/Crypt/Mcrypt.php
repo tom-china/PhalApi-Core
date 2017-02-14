@@ -3,6 +3,7 @@
 	
 	use PhalApi\Crypt;
 	use PhalApi\Exception\InternalServerError;
+	use PhalApi\Translator;
 	
 	/**
 	 * Mcrypt 原始mcrypt加密
@@ -89,7 +90,7 @@
 			
 			if ( $cipher === false || $cipher < 0 ) {
 				throw new InternalServerError(
-					T( 'mcrypt_module_open with {cipher}', [ 'cipher' => $cipher ] )
+					Translator::get( 'mcrypt_module_open with {cipher}', [ 'cipher' => $cipher ] )
 				);
 			}
 			

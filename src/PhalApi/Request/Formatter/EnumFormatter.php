@@ -3,6 +3,7 @@
 	
 	use PhalApi\Exception\InternalServerError;
 	use PhalApi\Request\Formatter;
+	use PhalApi\Translator;
 	
 	/**
 	 * EnumFormatter 格式化枚举类型
@@ -40,12 +41,12 @@
 		protected function formatEnumRule( $rule ) {
 			if ( ! isset( $rule['range'] ) ) {
 				throw new InternalServerError(
-					T( "miss {name}'s enum range", [ 'name' => $rule['name'] ] ) );
+					Translator::get( "miss {name}'s enum range", [ 'name' => $rule['name'] ] ) );
 			}
 			
 			if ( empty( $rule['range'] ) || ! is_array( $rule['range'] ) ) {
 				throw new InternalServerError(
-					T( "{name}'s enum range can not be empty", [ 'name' => $rule['name'] ] ) );
+					Translator::get( "{name}'s enum range can not be empty", [ 'name' => $rule['name'] ] ) );
 			}
 		}
 	}

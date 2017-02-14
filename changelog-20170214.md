@@ -10,3 +10,5 @@
 * 代码格式化
 * 先移除代码生成器部分
 * 移除NotORM类相关，改用composer引入
+* 移除Loader类及单元测试，改用composer进行autoload
+* 辅助函数DI()、SL( $language )、T( $msg, $params = [] )重构为PhalApi\Helper，使用PSR-4引入(use function PhalApi\Helper\DI;)

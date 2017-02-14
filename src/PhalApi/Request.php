@@ -104,13 +104,13 @@
 			$rs = null;
 			
 			if ( ! isset( $rule['name'] ) ) {
-				throw new InternalServerError( T( 'miss name for rule' ) );
+				throw new InternalServerError( Translator::get( 'miss name for rule' ) );
 			}
 			
 			$rs = RequestVar::format( $rule['name'], $rule, $this->data );
 			
 			if ( $rs === null && ( isset( $rule['require'] ) && $rule['require'] ) ) {
-				throw new BadRequest( T( '{name} require, but miss', [ 'name' => $rule['name'] ] ) );
+				throw new BadRequest( Translator::get( '{name} require, but miss', [ 'name' => $rule['name'] ] ) );
 			}
 			
 			return $rs;

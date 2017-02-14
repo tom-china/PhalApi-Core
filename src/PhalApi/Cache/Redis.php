@@ -3,6 +3,7 @@
 	
 	use PhalApi\Cache;
 	use PhalApi\Exception\InternalServerError;
+	use PhalApi\Translator;
 	
 	/**
 	 * Redis Redis缓存
@@ -40,7 +41,7 @@
 			// 连接
 			if ( isset( $config['type'] ) && $config['type'] == 'unix' ) {
 				if ( ! isset( $config['socket'] ) ) {
-					throw new InternalServerError( T( 'redis config key [socket] not found' ) );
+					throw new InternalServerError( Translator::get( 'redis config key [socket] not found' ) );
 				}
 				$this->redis->connect( $config['socket'] );
 			} else {

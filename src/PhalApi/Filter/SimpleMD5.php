@@ -3,6 +3,8 @@
 	
 	use PhalApi\Exception\BadRequest;
 	use PhalApi\Filter;
+	use function PhalApi\Helper\DI;
+	use PhalApi\Translator;
 	
 	/**
 	 * SimpleMD5 简单的MD5拦截器
@@ -42,7 +44,7 @@
 			
 			if ( $expectSign != $sign ) {
 				DI()->logger->debug( 'Wrong Sign', [ 'needSign' => $expectSign ] );
-				throw new BadRequest( T( 'wrong sign' ), 6 );
+				throw new BadRequest( Translator::get( 'wrong sign' ), 6 );
 			}
 		}
 		

@@ -2,6 +2,8 @@
 	namespace PhalApi\Request;
 	
 	use PhalApi\Exception\InternalServerError;
+	use function PhalApi\Helper\DI;
+	use PhalApi\Translator;
 	
 	/**
 	 * RequestVar 变量格式化类
@@ -73,6 +75,7 @@
 		 * @param array  $rule  规则配置
 		 *
 		 * @return mixed
+		 * @throws \PhalApi\Exception\InternalServerError
 		 */
 		protected static function formatAllType( $type, $value, $rule ) {
 			$diKey     = '_formatter' . ucfirst( $type );
@@ -82,7 +85,7 @@
 			
 			if ( ! ( $formatter instanceof Formatter ) ) {
 				throw new InternalServerError(
-					T( 'invalid type: {type} for rule: {name}', [ 'type' => $type, 'name' => $rule['name'] ] )
+					Translator::get( 'invalid type: {type} for rule: {name}', [ 'type' => $type, 'name' => $rule['name'] ] )
 				);
 			}
 			

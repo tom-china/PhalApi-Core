@@ -4,6 +4,7 @@
 	 */
 	use PhalApi\ApiFactory;
 	use PhalApi\Exception;
+	use function PhalApi\Helper\DI;
 	
 	defined( 'PHALAPI_VERSION' ) || define( 'PHALAPI_VERSION', '1.3.5' );
 	
@@ -12,7 +13,7 @@
 	 */
 	defined( 'PHALAPI_ROOT' ) || define( 'PHALAPI_ROOT', __DIR__ );
 	
-	require_once PHALAPI_ROOT . DIRECTORY_SEPARATOR . 'PhalApi' . DIRECTORY_SEPARATOR . 'Loader.php';
+//	require_once PHALAPI_ROOT . DIRECTORY_SEPARATOR . 'PhalApi' . DIRECTORY_SEPARATOR . 'Loader.php';
 	
 	/**
 	 * PhalApi 应用类

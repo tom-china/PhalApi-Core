@@ -1,5 +1,9 @@
 <?php
-/**
+	use PhalApi\Exception\InternalServerError;
+	use function PhalApi\Helper\DI;
+	use PhalApi\NotORM\Result;
+	
+	/**
  * PhalApi_Model_NotORM 基于NotORM的Model基类
  *
  * - 我们这里对ext_data使用json而不是序列化，是为了更容易阅读、理解、测试
@@ -112,7 +116,7 @@ class PhalApi_Model_NotORM implements PhalApi_Model {
     /**
      * 快速获取ORM实例，注意每次获取都是新的实例
      * @param string/int $id
-     * @return NotORM_Result
+     * @return Result
      */
     protected function getORM($id = NULL) {
         $table = $this->getTableName($id);
@@ -122,7 +126,7 @@ class PhalApi_Model_NotORM implements PhalApi_Model {
     protected function loadTableKeys() {
         $tables = DI()->config->get('dbs.tables');
         if (empty($tables)) {
-            throw new PhalApi_Exception_InternalServerError(T('dbs.tables should not be empty'));
+            throw new InternalServerError(T('dbs.tables should not be empty'));
         }
 
         foreach ($tables as $tableName => $tableConfig) {

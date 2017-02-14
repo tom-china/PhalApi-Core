@@ -78,7 +78,7 @@
 		 */
 		public static function one() {
 			if ( self::$instance == null ) {
-				self::$instance = new DI();
+				self::$instance = new self();
 				self::$instance->onConstruct();
 			}
 			
@@ -92,6 +92,7 @@
 		 * - 2、首次创建时将会调用
 		 */
 		public function onConstruct() {
+			//@todo
 			$this->request  = 'PhalApi_Request';
 			$this->response = 'PhalApi_Response_Json';
 		}
@@ -114,7 +115,7 @@
 			}
 			
 			throw new InternalServerError(
-				T( 'Call to undefined method DI::{name}() .', [ 'name' => $name ] )
+				Translator::get( 'Call to undefined method DI::{name}() .', [ 'name' => $name ] )
 			);
 		}
 		
@@ -126,6 +127,7 @@
 		 * @param string $key service注册名称，要求唯一，区分大小写
 		 *
 		 * @parms mixed $value service的值，可以是具体的值或实例、类名、匿名函数、数组配置
+		 * @return $this
 		 */
 		public function set( $key, $value ) {
 			$this->resetHit( $key );

@@ -2,6 +2,7 @@
 	namespace PhalApi\Exception;
 	
 	use PhalApi\Exception;
+	use PhalApi\Translator;
 	
 	/**
 	 * BadRequest 客户端非法请求
@@ -17,7 +18,7 @@
 		
 		public function __construct( $message, $code = 0 ) {
 			parent::__construct(
-				T( 'Bad Request: {message}', [ 'message' => $message ] ), 400 + $code
+				Translator::get( 'Bad Request: {message}', [ 'message' => $message ] ), 400 + $code
 			);
 		}
 	}

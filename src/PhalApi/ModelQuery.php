@@ -1,5 +1,6 @@
 <?php
 	namespace PhalApi;
+	use function PhalApi\Helper\DI;
 	
 	/**
 	 * ModelQuery 查询对象(值对象)

@@ -3,6 +3,7 @@
 	
 	use PhalApi\Exception\BadRequest;
 	use PhalApi\Exception\InternalServerError;
+	use function PhalApi\Helper\DI;
 	
 	/**
 	 * ApiFactory 创建控制器类 工厂方法
@@ -30,13 +31,15 @@
 		 * - 3、 方法是否可调用
 		 * - 4、 控制器是否初始化成功
 		 *
-		 * @param bool   $isInitialize 是否在创建后进行初始化
-		 * @param string $_REQUEST     ['service'] 接口服务名称，格式：XXX.XXX
+		 * @param bool $isInitialize 是否在创建后进行初始化
 		 *
-		 * @return Api 自定义的控制器
+		 * @return \PhalApi\Api 自定义的控制器
 		 *
-		 * @uses Api::init()
-		 * @throws BadRequest 非法请求下返回400
+		 * @throws \PhalApi\Exception\BadRequest 非法请求下返回400
+		 * @throws \PhalApi\Exception\InternalServerError
+		 * @internal param string $_REQUEST ['service'] 接口服务名称，格式：XXX.XXX
+		 *
+		 * @uses     Api::init()
 		 */
 		static function generateService( $isInitialize = true ) {
 			$service = DI()->request->get( 'service', 'Default.Index' );
@@ -45,7 +48,7 @@
 			
 			if ( count( $serviceArr ) < 2 ) {
 				throw new BadRequest(
-					T( 'service ({service}) illegal', [ 'service' => $service ] )
+					Translator::get( 'service ({service}) illegal', [ 'service' => $service ] )
 				);
 			}
 			
@@ -55,7 +58,7 @@
 			
 			if ( ! class_exists( $apiClassName ) ) {
 				throw new BadRequest(
-					T( 'no such service as {service}', [ 'service' => $service ] )
+					Translator::get( 'no such service as {service}', [ 'service' => $service ] )
 				);
 			}
 			
@@ -63,13 +66,13 @@
 			
 			if ( ! is_subclass_of( $api, 'Api' ) ) {
 				throw new InternalServerError(
-					T( '{class} should be subclass of Api', [ 'class' => $apiClassName ] )
+					Translator::get( '{class} should be subclass of Api', [ 'class' => $apiClassName ] )
 				);
 			}
 			
 			if ( ! method_exists( $api, $action ) || ! is_callable( [ $api, $action ] ) ) {
 				throw new BadRequest(
-					T( 'no such service as {service}', [ 'service' => $service ] )
+					Translator::get( 'no such service as {service}', [ 'service' => $service ] )
 				);
 			}
 			

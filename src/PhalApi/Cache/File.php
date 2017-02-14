@@ -3,6 +3,7 @@
 	
 	use PhalApi\Cache;
 	use PhalApi\Exception\InternalServerError;
+	use PhalApi\Translator;
 	
 	/**
 	 * File 文件缓存
@@ -44,7 +45,7 @@
 			$expireStr = sprintf( '%010d', $expire + time() );
 			if ( strlen( $expireStr ) > 10 ) {
 				throw new InternalServerError(
-					T( 'file expire is too large' )
+					Translator::get( 'file expire is too large' )
 				);
 			}
 			

@@ -3,6 +3,7 @@
 	
 	use PhalApi\Exception\BadRequest;
 	use PhalApi\Request\Formatter;
+	use PhalApi\Translator;
 	
 	
 	/**
@@ -36,11 +37,11 @@
 			}
 			
 			if ( ! isset( $_FILES[ $index ] ) || ! isset( $_FILES[ $index ]['error'] ) || ! is_array( $_FILES[ $index ] ) ) {
-				throw new BadRequest( T( 'miss upload file: {file}', [ 'file' => $index ] ) );
+				throw new BadRequest( Translator::get( 'miss upload file: {file}', [ 'file' => $index ] ) );
 			}
 			
 			if ( $_FILES[ $index ]['error'] != UPLOAD_ERR_OK ) {
-				throw new BadRequest( T( 'fail to upload file with error = {error}', [ 'error' => $_FILES[ $index ]['error'] ] ) );
+				throw new BadRequest( Translator::get( 'fail to upload file with error = {error}', [ 'error' => $_FILES[ $index ]['error'] ] ) );
 			}
 			
 			$sizeRule         = $rule;
@@ -59,13 +60,13 @@
 					$rule['ext'] = explode( ',', $rule['ext'] );
 				}
 				if ( ! $ext ) {
-					throw new BadRequest( T( 'Not the file type {ext}', [ 'ext' => json_encode( $rule['ext'] ) ] ) );
+					throw new BadRequest( Translator::get( 'Not the file type {ext}', [ 'ext' => json_encode( $rule['ext'] ) ] ) );
 				}
 				if ( is_array( $rule['ext'] ) ) {
 					$rule['ext'] = array_map( 'strtolower', $rule['ext'] );
 					$rule['ext'] = array_map( 'trim', $rule['ext'] );
 					if ( ! in_array( strtolower( $ext ), $rule['ext'] ) ) {
-						throw new BadRequest( T( 'Not the file type {ext}', [ 'ext' => json_encode( $rule['ext'] ) ] ) );
+						throw new BadRequest( Translator::get( 'Not the file type {ext}', [ 'ext' => json_encode( $rule['ext'] ) ] ) );
 					}
 				}
 			}

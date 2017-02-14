@@ -1,5 +1,9 @@
 <?php
-require_once PHALAPI_ROOT . DIRECTORY_SEPARATOR . 'NotORM' . DIRECTORY_SEPARATOR . 'NotORM.php';
+	use PhalApi\Exception\InternalServerError;
+	use function PhalApi\Helper\DI;
+	use PhalApi\Translator;
+	
+	require_once PHALAPI_ROOT . DIRECTORY_SEPARATOR . 'NotORM' . DIRECTORY_SEPARATOR . 'NotORM.php';
 
 /**
  * NotORM 分布式的DB存储
@@ -170,7 +174,7 @@ class NotORM /** implements PhalApi_DB */ {
 
         if (empty($tableMap)) {
             throw new InternalServerError(
-                T('No table map config for {tableName}', array('tableName' => $tableName))
+	            Translator::get('No table map config for {tableName}', array('tableName' => $tableName))
             );
         }
 
@@ -206,7 +210,7 @@ class NotORM /** implements PhalApi_DB */ {
 
         if ($dbKey === NULL) {
             throw new InternalServerError(
-                T('No db router match for {tableName}', array('tableName' => $tableName))
+	            Translator::get('No db router match for {tableName}', array('tableName' => $tableName))
             );
         }
 
@@ -229,16 +233,16 @@ class NotORM /** implements PhalApi_DB */ {
 
             if (empty($dbCfg)) {
                 throw new InternalServerError(
-                    T('no such db:{db} in servers', array('db' => $dbKey)));
+	                Translator::get('no such db:{db} in servers', array('db' => $dbKey)));
             }
 
             try {
                 $this->_pdos[$dbKey] = $this->createPDOBy($dbCfg);
             } catch (PDOException $ex) {
                 //异常时，接口异常返回，并隐藏数据库帐号信息
-                $errorMsg = T('can not connect to database: {db}', array('db' => $dbKey));
+                $errorMsg = Translator::get('can not connect to database: {db}', array('db' => $dbKey));
                 if (DI()->debug) {
-                    $errorMsg = T('can not connect to database: {db}, code: {code}, cause: {msg}', 
+                    $errorMsg = Translator::get('can not connect to database: {db}, code: {code}, cause: {msg}',
                         array('db' => $dbKey, 'code' => $ex->getCode(), 'msg' => $ex->getMessage()));
                 }
                 throw new InternalServerError($errorMsg);

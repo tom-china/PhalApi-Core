@@ -3,6 +3,7 @@
 	
 	use PhalApi\Exception\InternalServerError;
 	use PhalApi\Request\Formatter;
+	use PhalApi\Translator;
 	
 	/**
 	 * CallableFormatter 格式化回调类型
@@ -27,7 +28,7 @@
 		public function parse( $value, $rule ) {
 			if ( ! isset( $rule['callback'] ) || ! is_callable( $rule['callback'] ) ) {
 				throw new InternalServerError(
-					T( 'invalid callback for rule: {name}', [ 'name' => $rule['name'] ] )
+					Translator::get( 'invalid callback for rule: {name}', [ 'name' => $rule['name'] ] )
 				);
 			}
 			

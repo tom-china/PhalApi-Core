@@ -3,6 +3,7 @@
 	
 	use PhalApi\Cookie;
 	use PhalApi\Crypt;
+	use function PhalApi\Helper\DI;
 	
 	/**
 	 * Multi 多级COOKIE

@@ -3,6 +3,7 @@
 	
 	use PhalApi\Exception\BadRequest;
 	use PhalApi\Exception\InternalServerError;
+	use function PhalApi\Helper\DI;
 	
 	/**
 	 * Api 接口服务基类
@@ -50,7 +51,7 @@
 		public function __get( $name ) {
 			if ( ! isset( $this->$name ) || empty( $name ) ) {
 				throw new InternalServerError(
-					T( 'Api::${name} undefined', [ 'name' => $name ] )
+					Translator::get( 'Api::${name} undefined', [ 'name' => $name ] )
 				);
 			}
 			
@@ -185,7 +186,7 @@
 			if ( isset( $filter ) ) {
 				if ( ! ( $filter instanceof Filter ) ) {
 					throw new InternalServerError(
-						T( 'DI()->filter should be instanceof Filter' ) );
+						Translator::get( 'DI()->filter should be instanceof Filter' ) );
 				}
 				
 				$filter->check();

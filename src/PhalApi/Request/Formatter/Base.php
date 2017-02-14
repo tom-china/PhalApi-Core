@@ -3,6 +3,7 @@
 	
 	use PhalApi\Exception\BadRequest;
 	use PhalApi\Exception\InternalServerError;
+	use PhalApi\Translator;
 	
 	/**
 	 * Base 公共基类
@@ -32,7 +33,7 @@
 		protected function filterRangeMinLessThanOrEqualsMax( $rule ) {
 			if ( isset( $rule['min'] ) && isset( $rule['max'] ) && $rule['min'] > $rule['max'] ) {
 				throw new InternalServerError(
-					T( 'min should <= max, but now {name} min = {min} and max = {max}',
+					Translator::get( 'min should <= max, but now {name} min = {min} and max = {max}',
 						[ 'name' => $rule['name'], 'min' => $rule['min'], 'max' => $rule['max'] ] )
 				);
 			}
@@ -41,7 +42,7 @@
 		protected function filterRangeCheckMin( $value, $rule ) {
 			if ( isset( $rule['min'] ) && $value < $rule['min'] ) {
 				throw new BadRequest(
-					T( '{name} should >= {min}, but now {name} = {value}',
+					Translator::get( '{name} should >= {min}, but now {name} = {value}',
 						[ 'name' => $rule['name'], 'min' => $rule['min'], 'value' => $value ] )
 				);
 			}
@@ -50,7 +51,7 @@
 		protected function filterRangeCheckMax( $value, $rule ) {
 			if ( isset( $rule['max'] ) && $value > $rule['max'] ) {
 				throw new BadRequest(
-					T( '{name} should <= {max}, but now {name} = {value}',
+					Translator::get( '{name} should <= {max}, but now {name} = {value}',
 						[ 'name' => $rule['name'], 'max' => $rule['max'], 'value' => $value ] )
 				);
 			}
@@ -67,7 +68,7 @@
 		protected function formatEnumValue( $value, $rule ) {
 			if ( ! in_array( $value, $rule['range'] ) ) {
 				throw new BadRequest(
-					T( '{name} should be in {range}, but now {name} = {value}',
+					Translator::get( '{name} should be in {range}, but now {name} = {value}',
 						[ 'name' => $rule['name'], 'range' => implode( '/', $rule['range'] ), 'value' => $value ] )
 				);
 			}

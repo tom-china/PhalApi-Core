@@ -3,6 +3,7 @@
 	
 	use PhalApi\Exception\BadRequest;
 	use PhalApi\Request\Formatter;
+	use PhalApi\Translator;
 	
 	
 	/**
@@ -55,7 +56,7 @@
 			
 			//如果你看到此行报错，说明提供的正则表达式不合法
 			if ( preg_match( $rule['regex'], $value ) <= 0 ) {
-				throw new BadRequest( T( '{name} can not match {regex}', [
+				throw new BadRequest( Translator::get( '{name} can not match {regex}', [
 					'name'  => $rule['name'],
 					'regex' => $rule['regex'],
 				] ) );

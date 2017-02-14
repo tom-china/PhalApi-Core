@@ -2,6 +2,7 @@
 	namespace PhalApi\Exception;
 	
 	use PhalApi\Exception;
+	use PhalApi\Translator;
 	
 	/**
 	 * InternalServerError 服务器运行异常错误
@@ -15,7 +16,7 @@
 		
 		public function __construct( $message, $code = 0 ) {
 			parent::__construct(
-				T( 'Interal Server Error: {message}', [ 'message' => $message ] ), 500 + $code
+				Translator::get( 'Interal Server Error: {message}', [ 'message' => $message ] ), 500 + $code
 			);
 		}
 	}

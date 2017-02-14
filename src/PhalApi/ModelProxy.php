@@ -2,6 +2,7 @@
 	namespace PhalApi;
 	
 	use PhalApi\Cache\None;
+	use function PhalApi\Helper\DI;
 	
 	/**
 	 * ModelProxy 模型Model代理 - 重量级数据获取的应对方案
