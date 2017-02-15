@@ -1,7 +1,8 @@
 <?php
 	namespace PhalApi\Crypt\Rsa;
 	
-	use PhalApi\ICrypt;
+	use PhalApi\Crypt\ICrypt;
+	
 	
 	/**
 	 * Pri2Pub RSA原始加密

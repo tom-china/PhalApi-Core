@@ -3,8 +3,8 @@
 	
 	use PhalApi\Exception\InternalServerError;
 	use PhalApi\NotORM\Result;
-	use PhalApi\Translator;
 	use function PhalApi\Helper\DI;
+	use PhalApi\Translator\Translator;
 	
 	/**
 	 * PhalApi_Model_NotORM 基于NotORM的Model基类

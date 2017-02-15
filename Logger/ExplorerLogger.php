@@ -1,8 +1,6 @@
 <?php
 	namespace PhalApi\Logger;
 	
-	use PhalApi\Logger;
-	
 	/**
 	 * Explorer 直接输出日记到控制台的日记类
 	 *

@@ -36,7 +36,7 @@
 		 */
 		public $timestamp;
 		
-		public function __construct( $queryArr = [] ) {
+		public function __construct( array $queryArr = [] ) {
 			$this->timestamp = $_SERVER['REQUEST_TIME'];
 			
 			if ( DI()->debug ) {

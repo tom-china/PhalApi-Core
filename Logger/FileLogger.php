@@ -1,8 +1,6 @@
 <?php
 	namespace PhalApi\Logger;
 	
-	use PhalApi\Logger;
-	
 	/**
 	 * File 文件日记纪录类
 	 *

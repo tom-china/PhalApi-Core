@@ -2,7 +2,7 @@
 	namespace PhalApi\Crypt;
 	
 	use PhalApi\Exception\InternalServerError;
-	use PhalApi\Translator;
+	use PhalApi\Translator\Translator;
 	
 	/**
 	 * Mcrypt 原始mcrypt加密
@@ -28,6 +28,7 @@
 	 * @license     http://www.phalapi.net/license GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-12-10
+	 * @deprecated
 	 */
 	class Mcrypt implements ICrypt {
 		

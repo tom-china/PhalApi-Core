@@ -1,8 +1,6 @@
 <?php
 	namespace PhalApi\Exception;
-	
-	use PhalApi\Exception;
-	use PhalApi\Translator;
+	use PhalApi\Translator\Translator;
 	
 	/**
 	 * BadRequest 客户端非法请求
