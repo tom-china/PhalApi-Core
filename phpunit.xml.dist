@@ -20,7 +20,7 @@
 
     <testsuites>
         <testsuite name="PhalApi Test Suite">
-            <directory>./PhalApi/Tests/</directory>
+            <directory>./src/Tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
