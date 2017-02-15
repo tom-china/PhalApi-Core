@@ -28,11 +28,14 @@
     "phpunit/phpunit": "6.0"
   },
   "autoload": {
+    "files": [
+      "PhalApi/Helper/Functions.php"
+    ],
     "psr-4": {
-      "PhalApi\\": "src/PhalApi/"
+      "PhalApi\\": "PhalApi/"
     },
     "exclude-from-classmap": [
-      "/src/Tests/"
+      "/PhalApi/Tests/"
     ]
   },
   "repositories": {
