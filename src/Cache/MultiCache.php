@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Cache;
 	
-	use PhalApi\Cache;
+	use PhalApi\ICache;
 	
 	/**
 	 * Multi 组合模式下的多级缓存
@@ -14,11 +14,11 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-02-22
 	 */
-	class MultiCache implements Cache {
+	class MultiICache implements ICache {
 		
 		protected $caches = [];
 		
-		public function addCache( Cache $cache ) {
+		public function addCache( ICache $cache ) {
 			$this->caches[] = $cache;
 		}
 		

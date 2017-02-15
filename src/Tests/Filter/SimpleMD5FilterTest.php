@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Filter;
 	
-	use PhalApi\Filter\SimpleMD5Filter;
+	use PhalApi\Filter\SimpleMD5IFilter;
 	use PhalApi\Request;
 	use PhalApi\Tests\Mock\Api\ApiImpl;
 	use PHPUnit\Framework\TestCase;
@@ -58,7 +58,7 @@
 		protected function setUp() {
 			parent::setUp();
 			
-			$this->phalApiFilterSimpleMD5 = new SimpleMD5Filter();
+			$this->phalApiFilterSimpleMD5 = new SimpleMD5IFilter();
 			DI()->filter                  = 'PhalApi_Filter_SimpleMD5';
 		}
 		

@@ -129,7 +129,7 @@ EOT;
 /**
  * 底部
  */
-$version = PHALAPI_VERSION;
+$version = \PhalApi\PhalApi::VERSION;
 echo <<<EOT
         <div class="ui blue message">
           <strong>温馨提示：</strong> 此接口参数列表根据后台代码自动生成，可将 ?service= 改成您需要查询的接口/服务

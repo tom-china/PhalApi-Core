@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Config;
 	
-	use PhalApi\Config;
+	use PhalApi\IConfig;
 	
 	/**
 	 * Yaconf Yaconf扩展配置类
@@ -26,7 +26,7 @@
 	 * @link        https://github.com/laruence/yaconf
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-10-02
 	 */
-	class YaconfConfig implements Config {
+	class YaconfIConfig implements IConfig {
 		
 		public function get( $key, $default = null ) {
 			return \Yaconf::get( $key, $default );

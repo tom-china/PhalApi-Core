@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Cache;
 	
-	use PhalApi\Cache\FileCache;
+	use PhalApi\Cache\FileICache;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -81,7 +81,7 @@
 			@unlink( __DIR__ . '/cache' );
 			
 			$config['path']         = __DIR__;
-			$this->phalApiCacheFile = new FileCache( $config );
+			$this->phalApiCacheFile = new FileICache( $config );
 		}
 		
 		protected function tearDown() {

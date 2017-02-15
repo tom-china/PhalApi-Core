@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Filter;
 	
-	use PhalApi\Filter;
+	use PhalApi\IFilter;
 	
 	/**
 	 * None 无作为的拦截器
@@ -11,7 +11,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-10-23
 	 */
-	class NoneFilter implements Filter {
+	class NoneIFilter implements IFilter {
 		
 		public function check() {
 			// nothing here ...

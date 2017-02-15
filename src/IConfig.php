@@ -28,13 +28,13 @@
 	 * DI()->config->get('app.version.address');  //返回：chanzonghuang@gmail.com
 	 * ```
 	 *
-	 * @package PhalApi\Config
+	 * @package PhalApi
 	 * @license http://www.phalapi.net/license GPL 协议
 	 * @link    http://www.phalapi.net/
 	 * @author  dogstar <chanzonghuang@gmail.com> 2014-10-02
 	 */
 	
-	interface Config {
+	interface IConfig {
 		
 		/**
 		 * 获取配置

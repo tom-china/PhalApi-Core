@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Filter;
 	
-	use PhalApi\Filter\NoneFilter;
+	use PhalApi\Filter\NoneIFilter;
 	use PhalApi\Tests\Api\AlwaysException;
 	use PHPUnit\Framework\TestCase;
 	use function PhalApi\Helper\DI;
@@ -35,7 +35,7 @@
 		protected function setUp() {
 			parent::setUp();
 			
-			$this->phalApiFilterNone = new NoneFilter();
+			$this->phalApiFilterNone = new NoneIFilter();
 		}
 		
 		protected function tearDown() {

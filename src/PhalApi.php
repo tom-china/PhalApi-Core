@@ -1,19 +1,7 @@
 <?php
-	use PhalApi\ApiFactory;
-	use PhalApi\Exception;
+	namespace PhalApi;
+	
 	use function PhalApi\Helper\DI;
-	
-	/**
-	 * 框架版本号
-	 */
-	defined( 'PHALAPI_VERSION' ) || define( 'PHALAPI_VERSION', '1.3.5' );
-	
-	/**
-	 * 项目根目录
-	 */
-	defined( 'PHALAPI_ROOT' ) || define( 'PHALAPI_ROOT', __DIR__ );
-
-//	require_once PHALAPI_ROOT . DIRECTORY_SEPARATOR . 'PhalApi' . DIRECTORY_SEPARATOR . 'Loader.php';
 	
 	/**
 	 * PhalApi 应用类
@@ -27,12 +15,14 @@
 	 * $rs->output();
 	 * ```
 	 *
-	 * @package     PhalApi\Response
+	 * @package     PhalApi
 	 * @license     http://www.phalapi.net/license GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-12-17
 	 */
 	class PhalApi {
+		
+		const VERSION = '1.3.5';
 		
 		/**
 		 * 响应操作

@@ -4,9 +4,9 @@
 	namespace PhalApi\Tests\Mock\Crypt;
 	
 	
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	
-	class CookieCryptMock implements Crypt {
+	class CookieICryptMock implements ICrypt {
 		
 		public function encrypt( $data, $key ) {
 			return base64_encode( $data );

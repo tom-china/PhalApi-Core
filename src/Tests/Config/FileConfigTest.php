@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Config;
 	
-	use PhalApi\Config\FileConfig;
+	use PhalApi\Config\FileIConfig;
 	use PHPUnit\Framework\TestCase;
 	use function PhalApi\Helper\DI;
 	
@@ -16,7 +16,7 @@
 		public $coreConfigFile;
 		
 		public function testConstruct() {
-			$config = new FileConfig( __DIR__ . '/Config' );
+			$config = new FileIConfig( __DIR__ . '/Config' );
 		}
 		
 		/**

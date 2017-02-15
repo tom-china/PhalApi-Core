@@ -22,7 +22,7 @@
 	 *  DI()->cookie->delete('name');
 	 *
 	 * ```
-	 * @package PhalApi\Cookie
+	 * @package PhalApi
 	 * @license http://www.phalapi.net/license GPL 协议
 	 * @link    http://www.phalapi.net/
 	 * @author  dogstar <chanzonghuang@gmail.com> 2015-04-11
@@ -36,14 +36,16 @@
 		protected $config = [];
 		
 		/**
-		 * @param string  $config ['path'] 路径
-		 * @param string  $config ['domain'] 域名
-		 * @param boolean $config ['secure'] 是否加密
-		 * @param boolean $config ['httponly'] 是否只HTTP协议
+		 * @internal  string  $config ['path'] 路径
+		 * @internal  string  $config ['domain'] 域名
+		 * @internal  boolean $config ['secure'] 是否加密
+		 * @internal  boolean $config ['httponly'] 是否只HTTP协议
 		 *
-		 * @link http://php.net/manual/zh/function.setcookie.php
+		 * @link      http://php.net/manual/zh/function.setcookie.php
+		 *
+		 * @param array $config
 		 */
-		public function __construct( $config = [] ) {
+		public function __construct( array $config = [] ) {
 			$this->config['path']     = isset( $config['path'] ) ? $config['path'] : null;
 			$this->config['domain']   = isset( $config['domain'] ) ? $config['domain'] : null;
 			$this->config['secure']   = isset( $config['secure'] ) ? $config['secure'] : false;
@@ -69,9 +71,9 @@
 		 * 删除COOKIE
 		 *
 		 * @param string $name 待删除的COOKIE名字
-		 * @param        boolean
 		 *
 		 * @see Cookie::set()
+		 * @return bool
 		 */
 		public function delete( $name ) {
 			return $this->set( $name, '', 0 );
@@ -80,10 +82,12 @@
 		/**
 		 * 设置COOKIE
 		 *
-		 * @param string $name   待设置的COOKIE名字
-		 * @param        string  /int $value 建议COOKIE值为一些简单的字符串或数字，不推荐存放敏感数据
-		 * @param int    $expire 有效期的timestamp，为NULL时默认存放一个月
-		 * @param        boolean
+		 * @param string            $name   待设置的COOKIE名字
+		 * @param        string|int $value  建议COOKIE值为一些简单的字符串或数字，不推荐存放敏感数据
+		 * @param int               $expire 有效期的timestamp，为NULL时默认存放一个月
+		 * @param                   boolean
+		 *
+		 * @return bool
 		 */
 		public function set( $name, $value, $expire = null ) {
 			if ( $expire === null ) {

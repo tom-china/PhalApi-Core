@@ -2,7 +2,7 @@
 	namespace PhalApi\Cookie;
 	
 	use PhalApi\Cookie;
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	use function PhalApi\Helper\DI;
 	
 	/**
@@ -19,15 +19,17 @@
 	class MultiCookie extends Cookie {
 		
 		/**
-		 * @param $config ['crypt'] 加密的服务，如果未设置，默认取DI()->crypt，须实现PhalApi_Crypt接口
-		 * @param $config ['key'] $config['crypt']用的密钥，未设置时有一个md5串
+		 * @internal  $config ['crypt'] 加密的服务，如果未设置，默认取DI()->crypt，须实现PhalApi_Crypt接口
+		 * @internal  $config ['key'] $config['crypt']用的密钥，未设置时有一个md5串
+		 *
+		 * @param array $config
 		 */
-		public function __construct( $config = [] ) {
+		public function __construct( array $config = [] ) {
 			parent::__construct( $config );
 			
 			$this->config['crypt'] = isset( $config['crypt'] ) ? $config['crypt'] : DI()->crypt;
 			
-			if ( isset( $config['crypt'] ) && $config['crypt'] instanceof Crypt ) {
+			if ( isset( $config['crypt'] ) && $config['crypt'] instanceof ICrypt ) {
 				$this->config['key'] = isset( $config['key'] )
 					? $config['key'] : 'debcf37743b7c835ba367548f07aadc3';
 			} else {
@@ -38,6 +40,10 @@
 		/**
 		 * 解密获取COOKIE
 		 * @see PhalApi_Cookie::get()
+		 *
+		 * @param null $name
+		 *
+		 * @return string
 		 */
 		public function get( $name = null ) {
 			$rs = parent::get( $name );
@@ -60,6 +66,12 @@
 		/**
 		 * 加密设置COOKIE&记忆功能
 		 * @see PhalApi_Cookie::set()
+		 *
+		 * @param string     $name
+		 * @param int|string $value
+		 * @param null       $expire
+		 *
+		 * @return bool
 		 */
 		public function set( $name, $value, $expire = null ) {
 			if ( isset( $this->config['crypt'] ) ) {

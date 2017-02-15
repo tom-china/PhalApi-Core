@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Cache;
 	
-	use PhalApi\Cache\NoneCache;
+	use PhalApi\Cache\NoneICache;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -48,7 +48,7 @@
 		protected function setUp() {
 			parent::setUp();
 			
-			$this->phalApiCacheNone = new NoneCache();
+			$this->phalApiCacheNone = new NoneICache();
 		}
 		
 		protected function tearDown() {

@@ -2,7 +2,7 @@
 	namespace PhalApi\Filter;
 	
 	use PhalApi\Exception\BadRequest;
-	use PhalApi\Filter;
+	use PhalApi\IFilter;
 	use function PhalApi\Helper\DI;
 	use PhalApi\Translator;
 	
@@ -23,7 +23,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-10-23
 	 */
-	class SimpleMD5Filter implements Filter {
+	class SimpleMD5IFilter implements IFilter {
 		
 		protected $signName;
 		

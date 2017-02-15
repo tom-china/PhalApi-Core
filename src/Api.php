@@ -33,7 +33,7 @@
 	 * ```
 	 *
 	 * @property    mixed $whatever 接口参数
-	 * @package     PhalApi\Api
+	 * @package     PhalApi
 	 * @license     http://www.phalapi.net/license GPL 协议 GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-10-02
@@ -184,7 +184,7 @@
 			$filter = DI()->get( 'filter', 'Filter_None' );
 			
 			if ( isset( $filter ) ) {
-				if ( ! ( $filter instanceof Filter ) ) {
+				if ( ! ( $filter instanceof IFilter ) ) {
 					throw new InternalServerError(
 						Translator::get( 'DI()->filter should be instanceof Filter' ) );
 				}

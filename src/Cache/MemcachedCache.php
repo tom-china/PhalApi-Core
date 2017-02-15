@@ -12,7 +12,7 @@
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-11-14
 	 */
 	
-	class MemcachedCache extends MemcacheCache {
+	class MemcachedCache extends MemcacheICache {
 		
 		/**
 		 * 注意参数的微妙区别

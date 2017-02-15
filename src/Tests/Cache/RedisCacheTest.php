@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Cache;
 	
-	use PhalApi\Cache\RedisCache;
+	use PhalApi\Cache\RedisICache;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -155,7 +155,7 @@
 			parent::setUp();
 			
 			$config             = [ 'host' => '127.0.0.1', 'port' => 6379 ];
-			$this->phalApiRedis = new RedisCache( $config );
+			$this->phalApiRedis = new RedisICache( $config );
 		}
 		
 		protected function tearDown() {

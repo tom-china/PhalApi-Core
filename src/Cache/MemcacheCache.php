@@ -1,6 +1,6 @@
 <?php
 	namespace PhalApi\Cache;
-	use PhalApi\Cache;
+	use PhalApi\ICache;
 	
 	/**
 	 * Memcache MC缓存
@@ -15,7 +15,7 @@
 	 * @author      PhpStorm George <plzhuangyuan@163.com> 15/5/6 下午8:53
 	 */
 	
-	class MemcacheCache implements Cache {
+	class MemcacheICache implements ICache {
 		
 		protected $memcache = null;
 		

@@ -1,9 +1,9 @@
 <?php
 	namespace PhalApi\Tests\Cache;
 	
-	use PhalApi\Cache\FileCache;
-	use PhalApi\Cache\MultiCache;
-	use PhalApi\Cache\NoneCache;
+	use PhalApi\Cache\FileICache;
+	use PhalApi\Cache\MultiICache;
+	use PhalApi\Cache\NoneICache;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -20,7 +20,7 @@
 		 * @group testAddCache
 		 */
 		public function testAddCache() {
-			$cache = new NoneCache();
+			$cache = new NoneICache();
 			
 			$rs = $this->phalApiCacheMulti->addCache( $cache );
 		}
@@ -60,9 +60,9 @@
 		protected function setUp() {
 			parent::setUp();
 			
-			$this->phalApiCacheMulti = new MultiCache();
+			$this->phalApiCacheMulti = new MultiICache();
 			
-			$fileCache = new FileCache( [ 'path' => __DIR__ ] );
+			$fileCache = new FileICache( [ 'path' => __DIR__ ] );
 			
 			$this->phalApiCacheMulti->addCache( $fileCache );
 		}

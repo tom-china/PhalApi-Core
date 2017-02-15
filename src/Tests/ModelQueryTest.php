@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests;
 	
-	use PhalApi\ModelQuery;
+	use PhalApi\Model\ModelQuery;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -12,6 +12,9 @@
 	 * @author: dogstar 20150226
 	 */
 	class ModelQueryTest extends TestCase {
+		/**
+		 * @var $phalApiModelQuery ModelQuery
+		 */
 		public $phalApiModelQuery;
 		
 		public function testMixed() {

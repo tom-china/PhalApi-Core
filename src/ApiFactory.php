@@ -14,7 +14,7 @@
 	 *      //根据请求(?service=XXX.XXX)生成对应的接口服务，并进行初始化
 	 *      $api = ApiFactory::generateService();
 	 * ```
-	 * @package     PhalApi\Api
+	 * @package     PhalApi
 	 * @license     http://www.phalapi.net/license GPL 协议 GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-10-02

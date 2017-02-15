@@ -17,7 +17,7 @@
 	 *      var_dump($msg);
 	 * ```
 	 *
-	 * @package     PhalApi\Translator
+	 * @package     PhalApi
 	 * @license     http://www.phalapi.net/license GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-02-04
@@ -43,7 +43,7 @@
 		 *
 		 * @return string
 		 */
-		public static function get( $key, $params = [] ) {
+		public static function get( $key, array $params = [] ) {
 			if ( self::$message === null ) {
 				self::setLanguage( 'en' );
 			}
@@ -73,8 +73,14 @@
 			$moreMessagePath = self::getMessageFilePath( $path, self::$language );
 			
 			if ( file_exists( $moreMessagePath ) ) {
+				/** @noinspection PhpIncludeInspection */
 				self::$message = array_merge( self::$message, include $moreMessagePath );
 			}
+		}
+		
+		protected static function getMessageFilePath( $root, $language ) {
+			return implode( DIRECTORY_SEPARATOR,
+				[ $root, 'Language', strtolower( $language ), 'common.php' ] );
 		}
 		
 		/**
@@ -94,16 +100,11 @@
 			
 			self::$message = [];
 			
-			self::addMessage( PHALAPI_ROOT );
+			self::addMessage( __DIR__ . '/Translator/' );
 			
 			if ( defined( 'API_ROOT' ) ) {
 				self::addMessage( API_ROOT );
 			}
-		}
-		
-		protected static function getMessageFilePath( $root, $language ) {
-			return implode( DIRECTORY_SEPARATOR,
-				[ $root, 'Language', strtolower( $language ), 'common.php' ] );
 		}
 	}
 

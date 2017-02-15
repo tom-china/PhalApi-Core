@@ -2,7 +2,7 @@
 	namespace PhalApi\Model;
 	
 	use PhalApi\Exception\InternalServerError;
-	use PhalApi\Model;
+	use PhalApi\IModel;
 	use PhalApi\NotORM\Result;
 	use PhalApi\Translator;
 	use function PhalApi\Helper\DI;
@@ -20,7 +20,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-02-22
 	 */
-	class NotORM implements Model {
+	class NotORM implements IModel {
 		
 		protected static $tableKeys = [];
 		

@@ -1,5 +1,5 @@
 <?php
-	namespace PhalApi;
+	namespace PhalApi\Model;
 	
 	use function PhalApi\Helper\DI;
 	

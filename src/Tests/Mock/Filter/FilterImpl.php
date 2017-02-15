@@ -4,9 +4,9 @@
 	namespace PhalApi\Tests\Mock\Filter;
 	
 	
-	use PhalApi\Filter;
+	use PhalApi\IFilter;
 	
-	class FilterImpl implements Filter {
+	class IFilterImpl implements IFilter {
 		
 		public function check() {
 			

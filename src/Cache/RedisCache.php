@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Cache;
 	
-	use PhalApi\Cache;
+	use PhalApi\ICache;
 	use PhalApi\Exception\InternalServerError;
 	use PhalApi\Translator;
 	
@@ -17,7 +17,7 @@
 	 * @author      zzguo   2015-5-11
 	 * @modify      dogstar <chanzonghuang@gmail.com> 20150516
 	 */
-	class RedisCache implements Cache {
+	class RedisICache implements ICache {
 		
 		protected $redis;
 		

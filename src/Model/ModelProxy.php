@@ -1,7 +1,8 @@
 <?php
-	namespace PhalApi;
+	namespace PhalApi\Model;
 	
-	use PhalApi\Cache\NoneCache;
+	use PhalApi\ICache;
+	use PhalApi\Cache\NoneICache;
 	use function PhalApi\Helper\DI;
 	
 	/**
@@ -49,13 +50,15 @@
 		
 		/**
 		 * 为代理指定委托的缓存组件，默认情况下使用DI()->cache
+		 *
+		 * @param \PhalApi\ICache $cache
 		 */
-		public function __construct( Cache $cache = null ) {
+		public function __construct( ICache $cache = null ) {
 			$this->cache = $cache !== null ? $cache : DI()->cache;
 			
 			//退而求其次
 			if ( $this->cache === null ) {
-				$this->cache = new NoneCache();
+				$this->cache = new NoneICache();
 			}
 		}
 		
@@ -97,11 +100,19 @@
 		
 		/**
 		 * 获取源数据 - 具体实现
+		 *
+		 * @param $query
+		 *
+		 * @return
 		 */
 		abstract protected function doGetData( $query );
 		
 		/**
 		 * 返回缓存有效时间，单位为：秒
+		 *
+		 * @param $query
+		 *
+		 * @return
 		 */
 		abstract protected function getExpire( $query );
 	}

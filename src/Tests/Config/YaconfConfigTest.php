@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Config;
 	
-	use PhalApi\Config\YaconfConfig;
+	use PhalApi\Config\YaconfIConfig;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -47,7 +47,7 @@
 			 * version="1.3.1"
 			 */
 			
-			$this->phalApiConfigYaconf = new YaconfConfig();
+			$this->phalApiConfigYaconf = new YaconfIConfig();
 		}
 		
 		protected function tearDown() {

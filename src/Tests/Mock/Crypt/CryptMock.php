@@ -4,9 +4,9 @@
 	namespace PhalApi\Tests\Mock\Crypt;
 	
 	
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	
-	class CryptMock implements Crypt {
+	class ICryptMock implements ICrypt {
 		public function encrypt( $data, $key ) {
 			echo __METHOD__ . "($data, $key) ... \n";
 			

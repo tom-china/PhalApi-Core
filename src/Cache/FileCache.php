@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Cache;
 	
-	use PhalApi\Cache;
+	use PhalApi\ICache;
 	use PhalApi\Exception\InternalServerError;
 	use PhalApi\Translator;
 	
@@ -13,7 +13,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-02-26
 	 */
-	class FileCache implements Cache {
+	class FileICache implements ICache {
 		
 		protected $folder;
 		

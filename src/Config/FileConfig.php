@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Config;
 	
-	use PhalApi\Config;
+	use PhalApi\IConfig;
 	
 	/**
 	 * File 文件配置类
@@ -21,7 +21,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-10-02
 	 */
-	class FileConfig implements Config {
+	class FileIConfig implements IConfig {
 		
 		/**
 		 * @var string $path 配置文件的目录位置
@@ -41,7 +41,9 @@
 		 * 获取配置
 		 * 首次获取时会进行初始化
 		 *
-		 * @param $key string 配置键值
+		 * @param      $key string 配置键值
+		 *
+		 * @param null $default
 		 *
 		 * @return mixed 需要获取的配置值
 		 */

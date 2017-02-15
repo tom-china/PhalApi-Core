@@ -1,6 +1,6 @@
 <?php
 	namespace PhalApi\Cache;
-	use PhalApi\Cache;
+	use PhalApi\ICache;
 	
 	/**
 	 * None 空缓存 - NULL-Object空对象模式
@@ -11,7 +11,7 @@
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-02-04
 	 */
 	
-	class NoneCache implements Cache {
+	class NoneICache implements ICache {
 		
 		public function set( $key, $value, $expire = 600 ) {
 		}

@@ -1,6 +1,6 @@
 <?php
 	namespace PhalApi\Crypt;
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	
 	/**
 	 * MultiMcrypt 多级mcrypt加密
@@ -16,7 +16,7 @@
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-12-11
 	 */
 	
-	class MultiMcrypt implements Crypt {
+	class MultiMcrypt implements ICrypt {
 		
 		/**
 		 * @var Mcrypt $mcrypt

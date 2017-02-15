@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Crypt;
 	
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	use PhalApi\Exception\InternalServerError;
 	use PhalApi\Translator;
 	
@@ -30,7 +30,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-12-10
 	 */
-	class Mcrypt implements Crypt {
+	class Mcrypt implements ICrypt {
 		
 		/**
 		 * @var int 最大加密向量长度

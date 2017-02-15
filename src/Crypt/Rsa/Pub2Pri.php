@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Crypt\Rsa;
 	
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	
 	/**
 	 * Pub2Pri 原始RSA加密
@@ -13,7 +13,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-03-15
 	 */
-	class Pub2Pri implements Crypt {
+	class Pub2Pri implements ICrypt {
 		
 		public function encrypt( $data, $pubkey ) {
 			$rs = '';

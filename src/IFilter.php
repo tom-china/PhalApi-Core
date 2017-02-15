@@ -20,13 +20,13 @@
 	 * DI()->filter = 'Common_SignFilter';
 	 * ```
 	 *
-	 * @package     PhalApi\Filter
+	 * @package     PhalApi
 	 * @license     http://www.phalapi.net/license GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2014-10-25
 	 */
 	
-	interface Filter {
+	interface IFilter {
 		
 		public function check();
 	}

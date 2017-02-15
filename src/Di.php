@@ -36,15 +36,16 @@
 	 *       };
 	 * ```
 	 *
-	 * @property \PhalApi\Request                        $request    请求
+	 * @property \PhalApi\Request               $request    请求
 	 * @property \PhalApi\Response\JsonResponse $response   结果响应
-	 * @property \PhalApi\Cache                          $cache      缓存
-	 * @property \PhalApi\Crypt                          $crypt      加密
-	 * @property \PhalApi\Config                         $config     配置
-	 * @property \PhalApi\Logger                         $logger     日记
+	 * @property \PhalApi\ICache                $cache      缓存
+	 * @property \PhalApi\ICrypt                $crypt      加密
+	 * @property \PhalApi\IConfig               $config     配置
+	 * @property \PhalApi\Logger                $logger     日记
 	 * @property \PhalApi\Db\ORM                $notorm     数据库
+	 * @property bool                           $debug      debug
 	 *
-	 * @package     PhalApi\DI
+	 * @package     PhalApi
 	 * @link        http://docs.phalconphp.com/en/latest/reference/di.html 实现统一的资源设置、获取与管理，支持延时加载
 	 * @license     http://www.phalapi.net/license GPL 协议
 	 * @link        http://www.phalapi.net/
@@ -155,8 +156,8 @@
 		 * - 2、首次创建时，如果service级的构造函数可调用，则调用
 		 * - 3、每次获取时，如果非共享且service级的初始化函数可调用，则调用
 		 *
-		 * @param string  $key     service注册名称，要求唯一，区分大小写
-		 * @param mixed   $default service不存在时的默认值
+		 * @param string $key     service注册名称，要求唯一，区分大小写
+		 * @param mixed  $default service不存在时的默认值
 		 *
 		 * @return mixed 没有此服务时返回NULL
 		 */

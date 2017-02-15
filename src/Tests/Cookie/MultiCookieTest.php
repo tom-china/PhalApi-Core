@@ -2,8 +2,8 @@
 	namespace PhalApi\Tests\Cookie;
 	
 	use PhalApi\Cookie\MultiCookie;
-	use PhalApi\Crypt;
-	use PhalApi\Tests\Mock\Crypt\CookieCryptMock;
+	use PhalApi\ICrypt;
+	use PhalApi\Tests\Mock\Crypt\CookieICryptMock;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -62,7 +62,7 @@
 		protected function setUp() {
 			parent::setUp();
 			
-			$config                   = [ 'crypt' => new CookieCryptMock(), 'key' => 'aha~' ];
+			$config                   = [ 'crypt' => new CookieICryptMock(), 'key' => 'aha~' ];
 			$this->phalApiCookieMulti = new MultiCookie( $config );
 		}
 		

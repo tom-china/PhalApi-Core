@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Crypt\Rsa;
 	
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	
 	/**
 	 * Pri2Pub RSA原始加密
@@ -13,7 +13,7 @@
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-03-14
 	 */
-	class Pri2Pub implements Crypt {
+	class Pri2Pub implements ICrypt {
 		
 		public function encrypt( $data, $prikey ) {
 			$rs = '';

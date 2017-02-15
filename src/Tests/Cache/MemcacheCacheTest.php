@@ -1,7 +1,7 @@
 <?php
 	namespace PhalApi\Tests\Cache;
 	
-	use PhalApi\Cache\MemcacheCache;
+	use PhalApi\Cache\MemcacheICache;
 	use PHPUnit\Framework\TestCase;
 	
 	/**
@@ -55,7 +55,7 @@
 			parent::setUp();
 			
 			$config                     = [ 'host' => '127.0.0.1', 'port' => '11211' ];
-			$this->phalApiCacheMemcache = new MemcacheCache( $config );
+			$this->phalApiCacheMemcache = new MemcacheICache( $config );
 		}
 		
 		protected function tearDown() {

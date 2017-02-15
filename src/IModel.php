@@ -32,18 +32,18 @@
 	 *  $model->delete(1);
 	 * ```
 	 *
-	 * @package     PhalApi\Model
+	 * @package     PhalApi
 	 * @license     http://www.phalapi.net/license GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-02-22
 	 */
 	
-	interface Model {
+	interface IModel {
 		
 		/**
 		 * 根据主键读取纪录
 		 *
-		 * @param long $id    纪录主键
+		 * @param int  $id    纪录主键
 		 * @param      string /array $fields 需要获取的表字段，可以为字符串(如：name,from)或数组(如：array('name', 'from'))
 		 *
 		 * @return array 数据库表纪录
@@ -57,14 +57,14 @@
 		 * @param array $data 待插入的数据，可以包括ext_data字段
 		 * @param       $id   分表参考主键
 		 *
-		 * @return long 新插入纪录的主键值
+		 * @return int 新插入纪录的主键值
 		 */
 		public function insert( $data, $id = null );
 		
 		/**
 		 * 根据主键更新纪录
 		 *
-		 * @param long  $id   主键
+		 * @param int   $id   主键
 		 * @param array $data 待更新的数据，可以包括ext_data字段
 		 *
 		 * @return TRUE/FALSE

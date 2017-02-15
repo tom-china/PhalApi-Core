@@ -4,13 +4,13 @@
 	/**
 	 * Cache 缓存接口
 	 *
-	 * @package     PhalApi\Cache
+	 * @package     PhalApi
 	 * @license     http://www.phalapi.net/license GPL 协议
 	 * @link        http://www.phalapi.net/
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-02-04
 	 */
 	
-	interface Cache {
+	interface ICache {
 		
 		/**
 		 * 设置缓存

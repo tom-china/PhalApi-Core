@@ -1,6 +1,6 @@
 <?php
 	namespace PhalApi\Crypt\Rsa;
-	use PhalApi\Crypt;
+	use PhalApi\ICrypt;
 	
 	/**
 	 * MultiBase RSA加密层超类
@@ -17,7 +17,7 @@
 	 * @author      dogstar <chanzonghuang@gmail.com> 2015-03-14
 	 */
 	
-	abstract class MultiBase implements Crypt {
+	abstract class MultiBase implements ICrypt {
 		
 		/**
 		 * @var int 允许最大分割的长度

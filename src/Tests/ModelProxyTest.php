@@ -1,8 +1,8 @@
 <?php
 	namespace PhalApi\Tests;
 	
-	use PhalApi\ModelProxy;
-	use PhalApi\ModelQuery;
+	use PhalApi\Model\ModelProxy;
+	use PhalApi\Model\ModelQuery;
 	use PhalApi\Tests\Mock\ModelProxyMock;
 	use PHPUnit\Framework\TestCase;
 	
@@ -14,6 +14,9 @@
 	 * @author: dogstar 20150226
 	 */
 	class ModelProxyTest extends TestCase {
+		/**
+		 * @var $phalApiModelProxy ModelProxy
+		 */
 		public $phalApiModelProxy;
 		
 		/**
