@@ -29,13 +29,13 @@
   },
   "autoload": {
     "files": [
-      "PhalApi/Helper/Functions.php"
+      "src/Helper/Functions.php"
     ],
     "psr-4": {
-      "PhalApi\\": "PhalApi/"
+      "PhalApi\\": "src/"
     },
     "exclude-from-classmap": [
-      "/PhalApi/Tests/"
+      "/src/Tests/"
     ]
   },
   "repositories": {
