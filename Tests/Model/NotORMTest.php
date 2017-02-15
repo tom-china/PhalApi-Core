@@ -1,9 +1,9 @@
 <?php
 	namespace PhalApi\Tests\Model;
 	
+	use PhalApi\Tests\Mock\Db\DefaultTableMock;
+	use PhalApi\Tests\Mock\Db\NotORMTmpMock;
 	use PHPUnit\Framework\TestCase;
-	use Tests\Mock\Db\DefaultTableMock;
-	use Tests\Mock\Db\NotORMTmpMock;
 	
 	/**
 	 * PhpUnderControl_PhalApiModelNotORM_Test

@@ -1,8 +1,6 @@
 <?php
 	namespace PhalApi\Exception;
-	
-	use PhalApi\Exception;
-	use PhalApi\Translator;
+	use PhalApi\Translator\Translator;
 	
 	/**
 	 * InternalServerError 服务器运行异常错误

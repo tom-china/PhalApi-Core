@@ -1,7 +1,7 @@
 <?php
 	
 	
-	namespace Tests\Mock\Db;
+	namespace PhalApi\Tests\Mock\Db;
 	
 	
 	class DefaultTableMock extends NotORMTestMock {

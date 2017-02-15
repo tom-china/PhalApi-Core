@@ -20,7 +20,7 @@
 		 * @group testGet
 		 */
 		public function testGet() {
-			$url       = 'http://phalapi.oschina.mopaas.com/Public/demo/';
+			$url       = 'http://demo.phalapi.net/';
 			$timeoutMs = 1000;
 			
 			$rs = $this->phalApiCUrl->get( $url, $timeoutMs );
@@ -34,7 +34,7 @@
 		 */
 		public function testPost() {
 			//@todo
-			$url       = 'http://phalapi.oschina.mopaas.com/Public/demo/';
+			$url       = 'http://demo.phalapi.net/';
 			$data      = [ 'username' => 'phalapi' ];
 			$timeoutMs = 1000;
 			

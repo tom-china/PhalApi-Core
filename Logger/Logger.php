@@ -102,8 +102,8 @@
 		/**
 		 * 开发调试级日志
 		 *
-		 * @param string $msg   日志关键描述
-		 * @param        string /array $data 场景上下文信息
+		 * @param string              $msg  日志关键描述
+		 * @param        string|array $data 场景上下文信息
 		 *
 		 * @return void
 		 */

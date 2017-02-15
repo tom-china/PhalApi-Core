@@ -3,7 +3,7 @@
 	
 	use PhalApi\Exception\BadRequest;
 	use PhalApi\Exception\InternalServerError;
-	use PhalApi\Translator;
+	use PhalApi\Translator\Translator;
 	
 	/**
 	 * Base 公共基类

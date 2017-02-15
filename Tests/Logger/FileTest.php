@@ -1,8 +1,8 @@
 <?php
 	namespace PhalApi\Tests\Logger;
 	
-	use PhalApi\Logger;
 	use PhalApi\Logger\FileLogger;
+	use PhalApi\Logger\Logger;
 	use PHPUnit\Framework\TestCase;
 	
 	/**

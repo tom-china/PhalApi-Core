@@ -8,6 +8,4 @@
 	
 	class JsonpResponseMock extends JsonpResponse {
 		
-		protected function handleHeaders( $headers ) {
-		}
 	}

@@ -3,7 +3,7 @@
 	
 	use PhalApi\Exception\InternalServerError;
 	use PhalApi\Request\Formatter;
-	use PhalApi\Translator;
+	use PhalApi\Translator\Translator;
 	
 	/**
 	 * CallableFormatter 格式化回调类型
